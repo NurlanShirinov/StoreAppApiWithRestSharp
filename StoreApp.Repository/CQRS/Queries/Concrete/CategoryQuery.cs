@@ -1,12 +1,8 @@
 ﻿using RestSharp;
 using StoreApp.Core.Models;
+using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.CQRS.Queries.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace StoreApp.Repository.CQRS.Queries.Concrete
 {
@@ -19,20 +15,20 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
             _client = new RestClient("https://api.escuelajs.co");
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync()
+        public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
         {
             var request = new RestRequest("api/v1/categories");
             var response = await _client.ExecuteGetAsync(request);
-            var categoryList = JsonSerializer.Deserialize<IEnumerable<Category>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var categoryList = JsonSerializer.Deserialize<IEnumerable<GetCategoryResponseModel>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             return categoryList;
         }
 
-        public async Task<Category> GetByIdAsync(int id)
+        public async Task<GetCategoryResponseModel> GetByIdAsync(int id)
         {
             var request = new RestRequest("/api/v1/categories/{id}");
             request.AddUrlSegment("id", id.ToString());
             var response = await _client.ExecuteGetAsync(request);
-            var category = JsonSerializer.Deserialize<Category>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var category = JsonSerializer.Deserialize<GetCategoryResponseModel>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             return category;
         }
     }

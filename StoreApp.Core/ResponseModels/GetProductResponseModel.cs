@@ -11,6 +11,6 @@ namespace StoreApp.Core.ResponseModels
         public decimal Price { get; set; }
         public string? Description { get; set; }
         public IEnumerable<string> Images { get; set; }
-        public Category Category { get; set; }
+        public GetCategoryResponseModeltegory Category { get; set; }
     }
 }

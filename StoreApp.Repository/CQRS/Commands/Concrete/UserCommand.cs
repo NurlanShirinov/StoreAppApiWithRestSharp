@@ -2,8 +2,6 @@
 using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
 using StoreApp.Repository.CQRS.Commands.Abstract;
-using System.Net;
-using System.Text.Json;
 
 namespace StoreApp.Repository.CQRS.Commands.Concrete
 {

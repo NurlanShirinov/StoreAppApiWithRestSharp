@@ -7,6 +7,6 @@
         public string? Description { get; set;}
         public int CategoryId { get; set; }
         public IEnumerable<Image> Images { get; set; }
-        public Category Category { get; set; }
+        public GetCategoryResponseModeltegory Category { get; set; }
     }
 }

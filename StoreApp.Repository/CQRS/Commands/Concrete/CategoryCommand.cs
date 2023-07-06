@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
+using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.CQRS.Commands.Abstract;
 
 namespace StoreApp.Repository.CQRS.Commands.Concrete
@@ -14,12 +15,12 @@ namespace StoreApp.Repository.CQRS.Commands.Concrete
             _client = new RestClient("https://api.escuelajs.co");
         }
 
-        public async Task<Category> CreateAsync(UpdateCategoryRequestModel category)
+        public async Task<GetCategoryResponseModel> CreateAsync(UpdateCategoryRequestModel category)
         {
             try
             {
                 var request = new RestRequest("/api/v1/categories/").AddJsonBody(category);
-                var response = await _client.ExecutePostAsync<Category>(request);
+                var response = await _client.ExecutePostAsync<GetCategoryResponseModel>(request);
                 return response.Data;
             }
             catch (Exception)
@@ -46,14 +47,14 @@ namespace StoreApp.Repository.CQRS.Commands.Concrete
 
      
 
-        public async Task<Category> UpdateAsync(UpdateCategoryRequestModel category, int id)
+        public async Task<GetCategoryResponseModel> UpdateAsync(UpdateCategoryRequestModel category, int id)
         {
             try
             {
                 var requst = new RestRequest("api/v1/categories/{id}")
                     .AddUrlSegment("id", id)
                     .AddJsonBody(category);
-                var response = await _client.ExecutePutAsync<Category>(requst);
+                var response = await _client.ExecutePutAsync<GetCategoryResponseModel>(requst);
                 return response.Data;
 
             }

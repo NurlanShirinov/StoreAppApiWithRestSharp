@@ -36,7 +36,7 @@ namespace StoreApp.Api.Controllers
             var result = await _userService.CheckUserByEmailAsync(email);
             return Ok(result);
         }
-
+            
         [HttpPost]
         public async Task<IActionResult> Post(PostUserRequestModel user)
         {

@@ -1,12 +1,8 @@
 ﻿using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
+using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.Repositories.Abstract;
 using StoreApp.Service.Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreApp.Service.Services.Concrete
 {
@@ -19,7 +15,7 @@ namespace StoreApp.Service.Services.Concrete
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<Category> CreateAsync(UpdateCategoryRequestModel category)
+        public async Task<GetCategoryResponseModel> CreateAsync(UpdateCategoryRequestModel category)
         {
             var result = await _categoryRepository.CreateAsync(category);
             return result;
@@ -31,19 +27,19 @@ namespace StoreApp.Service.Services.Concrete
             return result;
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync()
+        public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
         {
             var result = await _categoryRepository.GetAllAsync();
             return result;
         }
 
-        public async Task<Category> GetByIdAsync(int id)
+        public async Task<GetCategoryResponseModel> GetByIdAsync(int id)
         {
             var result = await _categoryRepository.GetByIdAsync(id);
             return result;
         }
 
-        public async Task<Category> UpdateAsync(UpdateCategoryRequestModel category, int id)
+        public async Task<GetCategoryResponseModel> UpdateAsync(UpdateCategoryRequestModel category, int id)
         {
             var result = await _categoryRepository.UpdateAsync(category, id);
             return result;
