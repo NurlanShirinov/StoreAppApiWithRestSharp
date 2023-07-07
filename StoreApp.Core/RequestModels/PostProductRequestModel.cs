@@ -9,6 +9,6 @@ namespace StoreApp.Core.RequestModels
         public string? Description { get; set; }
         public int CategoryId { get; set; }
         public IEnumerable<string> Images { get; set; }
-        public GetCategoryResponseModeltegory Category { get; set; }
+        public Category Category { get; set; }
     }
 }

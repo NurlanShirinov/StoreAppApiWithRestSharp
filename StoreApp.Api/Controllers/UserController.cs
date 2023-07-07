@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
 using StoreApp.Service.Services.Abstract;
 
@@ -36,7 +35,7 @@ namespace StoreApp.Api.Controllers
             var result = await _userService.CheckUserByEmailAsync(email);
             return Ok(result);
         }
-            
+        
         [HttpPost]
         public async Task<IActionResult> Post(PostUserRequestModel user)
         {
@@ -50,6 +49,5 @@ namespace StoreApp.Api.Controllers
             var result = await _userService.Put(model, id);
             return Ok(result);
         }
-       
     }
 }

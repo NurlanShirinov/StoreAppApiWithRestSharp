@@ -1,5 +1,4 @@
 ﻿using RestSharp;
-using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
 using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.CQRS.Commands.Abstract;

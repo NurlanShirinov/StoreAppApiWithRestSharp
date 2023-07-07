@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StoreApp.Core.Models;
 using StoreApp.Core.RequestModels;
 using StoreApp.Service.Services.Abstract;
 

@@ -3,11 +3,6 @@ using StoreApp.Core.RequestModels;
 using StoreApp.Repository.CQRS.Commands.Abstract;
 using StoreApp.Repository.CQRS.Queries.Abstract;
 using StoreApp.Repository.Repositories.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreApp.Repository.Repositories.Concrete
 {

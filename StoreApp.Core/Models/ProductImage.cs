@@ -1,6 +1,6 @@
 ﻿namespace StoreApp.Core.Models
 {
-    public class Image
+    public class ProductImage
     {
         public int Id { get; set; }
         public string? URL { get; set; }

@@ -1,11 +1,5 @@
-﻿using StoreApp.Core.Models;
-using StoreApp.Core.RequestModels;
+﻿using StoreApp.Core.RequestModels;
 using StoreApp.Core.ResponseModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreApp.Repository.Repositories.Abstract
 {

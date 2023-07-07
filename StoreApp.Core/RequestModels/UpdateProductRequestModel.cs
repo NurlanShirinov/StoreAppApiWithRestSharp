@@ -7,6 +7,6 @@ namespace StoreApp.Core.RequestModels
         public string? Title { get; set; }
         public decimal Price { get; set; }
         public string? Description { get; set; }
-        public GetCategoryResponseModeltegory Category { get; set; }
+        public Category Category { get; set; }
     }
 }

@@ -2,11 +2,6 @@
 using StoreApp.Core.RequestModels;
 using StoreApp.Repository.Repositories.Abstract;
 using StoreApp.Service.Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreApp.Service.Services.Concrete
 {

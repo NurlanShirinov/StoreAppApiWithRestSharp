@@ -1,5 +1,4 @@
-﻿using StoreApp.Core.Models;
-using StoreApp.Core.ResponseModels;
+﻿using StoreApp.Core.ResponseModels;
 
 namespace StoreApp.Repository.CQRS.Queries.Abstract
 {

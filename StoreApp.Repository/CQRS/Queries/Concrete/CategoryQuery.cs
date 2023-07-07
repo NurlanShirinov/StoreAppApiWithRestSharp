@@ -1,4 +1,7 @@
-﻿using RestSharp;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using RestSharp;
+using StoreApp.Core.DAL;
 using StoreApp.Core.Models;
 using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.CQRS.Queries.Abstract;
@@ -9,10 +12,12 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
     public class CategoryQuery : ICategoryQuery
     {
         private readonly RestClient _client;
+        private readonly AppDbContext _context;
 
-        public CategoryQuery()
+        public CategoryQuery(AppDbContext context)
         {
             _client = new RestClient("https://api.escuelajs.co");
+            _context = context;
         }
 
         public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
@@ -20,6 +25,8 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
             var request = new RestRequest("api/v1/categories");
             var response = await _client.ExecuteGetAsync(request);
             var categoryList = JsonSerializer.Deserialize<IEnumerable<GetCategoryResponseModel>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            //_context.Categories.FromSqlRaw("TruncateTables");
+
             return categoryList;
         }
 

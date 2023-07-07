@@ -1,5 +1,4 @@
-﻿using StoreApp.Core.Models;
-using StoreApp.Core.RequestModels;
+﻿using StoreApp.Core.RequestModels;
 using StoreApp.Core.ResponseModels;
 
 namespace StoreApp.Repository.Repositories.Abstract

@@ -1,10 +1,4 @@
-﻿using StoreApp.Core.Models;
-using StoreApp.Core.ResponseModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StoreApp.Core.ResponseModels;
 
 namespace StoreApp.Repository.CQRS.Queries.Abstract
 {
