@@ -29,7 +29,7 @@ namespace StoreApp.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("CheckUserWithEmal")]
+        [HttpGet("CheckUserWithEmail")]
         public async Task<IActionResult> CheckUserWithEmail(string email)
         {
             var result = await _userService.CheckUserByEmailAsync(email);
@@ -49,5 +49,12 @@ namespace StoreApp.Api.Controllers
             var result = await _userService.Put(model, id);
             return Ok(result);
         }
+
+        //[HttpGet("GetAllUpdatedData")]
+        //public async Task<IActionResult> GetAllUpdatedData()
+        //{
+        //     await _userService.GetUpdatedData();
+        //    return Ok();
+        //}
     }
 }

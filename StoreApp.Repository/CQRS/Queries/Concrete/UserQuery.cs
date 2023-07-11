@@ -21,7 +21,7 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
                 var request = new RestRequest("/api/v1/users");
                 var response = await _client.ExecuteGetAsync(request);
                 var userList = JsonSerializer.Deserialize<IEnumerable<User>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                var result = userList.FirstOrDefault(x=> x.Email == email);
+                var result = userList.FirstOrDefault(x => x.Email == email);
                 if (result != null) { return true; };
                 return false;
             }
@@ -45,6 +45,7 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
                 throw ex;
             }
         }
+
 
         public async Task<User> GetByIdAsync(int id)
         {

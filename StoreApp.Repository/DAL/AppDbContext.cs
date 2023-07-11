@@ -8,10 +8,7 @@ namespace StoreApp.Core.DAL
         public AppDbContext(DbContextOptions options) : base(options)
         {
 
-            
-
         }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -21,8 +18,6 @@ namespace StoreApp.Core.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-         
         }
     }
 }

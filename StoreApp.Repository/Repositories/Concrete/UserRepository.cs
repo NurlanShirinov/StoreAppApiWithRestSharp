@@ -41,7 +41,7 @@ namespace StoreApp.Repository.Repositories.Concrete
             return result;
         }
 
-        public async Task<User> Put(PutUserRequestModel model , int id)
+        public async Task<User> Put(PutUserRequestModel model, int id)
         {
             var result = await _userCommand.Put(model, id);
             return result;

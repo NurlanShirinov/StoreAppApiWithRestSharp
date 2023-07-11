@@ -10,6 +10,5 @@ namespace StoreApp.Service.Services.Abstract
         Task<User> Post(PostUserRequestModel user);
         Task<User> Put(PutUserRequestModel model, int id);
         Task<bool> CheckUserByEmailAsync(string email);
-
     }
 }

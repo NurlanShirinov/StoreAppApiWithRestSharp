@@ -7,12 +7,13 @@ namespace StoreApp.Service.Services.Concrete
 {
     public class UserService : IUserService
     {
-
         private readonly IUserRepository _userRepository;
+        private readonly IBaseSqlRepository _sqlRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IBaseSqlRepository sqlRepository)
         {
             _userRepository = userRepository;
+            _sqlRepository = sqlRepository;
         }
 
         public async Task<bool> CheckUserByEmailAsync(string email)
@@ -24,6 +25,8 @@ namespace StoreApp.Service.Services.Concrete
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             var result = await _userRepository.GetAllAsync();
+            await _sqlRepository.TruncateTables();
+            await _sqlRepository.SaveToDatabase(result);
             return result;
         }
 

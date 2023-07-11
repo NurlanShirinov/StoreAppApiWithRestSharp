@@ -8,7 +8,6 @@ namespace StoreApp.Repository.Repositories.Concrete
 {
     public class ProductRepository : IProductRepository
     {
-
         private readonly IProductQuery _productQuery;
         private readonly IProductCommand _productCommand;
 

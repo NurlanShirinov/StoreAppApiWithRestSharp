@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using RestSharp;
 using StoreApp.Core.DAL;
 using StoreApp.Core.Models;
@@ -20,15 +19,15 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
             _context = context;
         }
 
-        public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
             var request = new RestRequest("api/v1/categories");
             var response = await _client.ExecuteGetAsync(request);
-            var categoryList = JsonSerializer.Deserialize<IEnumerable<GetCategoryResponseModel>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            //_context.Categories.FromSqlRaw("TruncateTables");
+            var categoryList = JsonSerializer.Deserialize<IEnumerable<Category>>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             return categoryList;
         }
+
 
         public async Task<GetCategoryResponseModel> GetByIdAsync(int id)
         {
@@ -38,5 +37,6 @@ namespace StoreApp.Repository.CQRS.Queries.Concrete
             var category = JsonSerializer.Deserialize<GetCategoryResponseModel>(response.Content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             return category;
         }
+
     }
 }

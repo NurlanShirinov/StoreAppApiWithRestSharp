@@ -1,4 +1,5 @@
-﻿using StoreApp.Core.RequestModels;
+﻿using StoreApp.Core.Models;
+using StoreApp.Core.RequestModels;
 using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.Repositories.Abstract;
 using StoreApp.Service.Services.Abstract;
@@ -8,10 +9,12 @@ namespace StoreApp.Service.Services.Concrete
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IBaseSqlRepository _sqlRepository;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, IBaseSqlRepository sqlRepository)
         {
             _categoryRepository = categoryRepository;
+            _sqlRepository = sqlRepository;
         }
 
         public async Task<GetCategoryResponseModel> CreateAsync(UpdateCategoryRequestModel category)
@@ -26,7 +29,7 @@ namespace StoreApp.Service.Services.Concrete
             return result;
         }
 
-        public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
             var result = await _categoryRepository.GetAllAsync();
             return result;

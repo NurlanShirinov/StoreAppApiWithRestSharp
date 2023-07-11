@@ -1,4 +1,5 @@
-﻿using StoreApp.Core.RequestModels;
+﻿using StoreApp.Core.Models;
+using StoreApp.Core.RequestModels;
 using StoreApp.Core.ResponseModels;
 using StoreApp.Repository.CQRS.Commands.Abstract;
 using StoreApp.Repository.CQRS.Queries.Abstract;
@@ -8,7 +9,6 @@ namespace StoreApp.Repository.Repositories.Concrete
 {
     public class CategoryRepository : ICategoryRepository
     {
-
         private readonly ICategoryQuery _categoryQuery;
         private readonly ICategoryCommand _categoryCommand;
 
@@ -17,7 +17,6 @@ namespace StoreApp.Repository.Repositories.Concrete
             _categoryQuery = categoryQuery;
             _categoryCommand = categoryCommand;
         }
-
         public async Task<GetCategoryResponseModel> CreateAsync(UpdateCategoryRequestModel category)
         {
             var result = await _categoryCommand.CreateAsync(category);
@@ -30,7 +29,7 @@ namespace StoreApp.Repository.Repositories.Concrete
             return result;
         }
 
-        public async Task<IEnumerable<GetCategoryResponseModel>> GetAllAsync()
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
             var result = await _categoryQuery.GetAllAsync();
             return result;
